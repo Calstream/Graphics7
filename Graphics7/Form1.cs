@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Graphics7
 {
@@ -15,10 +16,14 @@ namespace Graphics7
     {
         bool draw = false;
         bool imExists = false;
+        bool saved = true;
+
+        string filepath = "";
+
         public Form1()
         {
             InitializeComponent();
-
+            this.Text = "Graphics-7";
         }
 
         private void trackBar_ValueChanged(object sender, EventArgs e)
@@ -39,21 +44,64 @@ namespace Graphics7
             img.FillRectangle(Brushes.White, 0, 0, w, h);
             pictureBox.Image = im;
             imExists = true;
+            this.Text = "NewImage.bmp*";
         }
 
         private void openMenu_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open...";
+            ofd.Filter = "Bitmap(*.bmp) | *.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                filepath = ofd.FileName;
+                this.Text = Path.GetFileName(filepath);
+                pictureBox.Image = new Bitmap(ofd.FileName);
+                imExists = true;
+            }
         }
 
         private void saveMenu_Click(object sender, EventArgs e)
         {
+            if (!saved)
+                Save();
+        }
 
+        private void Save()
+        {
+            if (filepath != "")
+            {
+                string message = "Вы хотите сохранить изменения в файле " + filepath + "?";
+                DialogResult result = MessageBox.Show(message, "Graphics-7", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    File.Delete(filepath);
+                    pictureBox.Image.Save(filepath, System.Drawing.Imaging.ImageFormat.Bmp);
+                    this.Text = this.Text.Remove(this.Text.Length - 1, 1);
+                    saved = true;
+                }
+            }
+            else
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Save";
+                sfd.Filter = "Bitmap|*.bmp";
+                DialogResult result = sfd.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    filepath = sfd.FileName;
+                    pictureBox.Image.Save(filepath);
+                    this.Text = this.Text.Remove(this.Text.Length - 1, 1);
+                    saved = true;
+                }
+            }
         }
 
         private void exitMenu_Click(object sender, EventArgs e)
         {
-
+            if (!saved)
+                Save();
+            Close();
         }
 
         private void color_l_Click(object sender, EventArgs e)
@@ -69,7 +117,8 @@ namespace Graphics7
         private Color get_col()
         {
             Color res = Color.FromArgb(trackBarOP.Value,color_l.BackColor.R, color_l.BackColor.G, color_l.BackColor.B);
-            return res;        }
+            return res;
+        }
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
@@ -77,6 +126,9 @@ namespace Graphics7
             {
                 draw = true;
                 Draw(e.X, e.Y);
+                saved = false;
+                if (!this.Text.Contains("*"))
+                this.Text += "*";
             }
         }
 
