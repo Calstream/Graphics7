@@ -159,18 +159,18 @@
             this.trackBarTHval.AutoSize = true;
             this.trackBarTHval.Location = new System.Drawing.Point(448, 21);
             this.trackBarTHval.Name = "trackBarTHval";
-            this.trackBarTHval.Size = new System.Drawing.Size(13, 13);
+            this.trackBarTHval.Size = new System.Drawing.Size(19, 13);
             this.trackBarTHval.TabIndex = 4;
-            this.trackBarTHval.Text = "0";
+            this.trackBarTHval.Text = "15";
             // 
             // trackBarOPval
             // 
             this.trackBarOPval.AutoSize = true;
             this.trackBarOPval.Location = new System.Drawing.Point(199, 21);
             this.trackBarOPval.Name = "trackBarOPval";
-            this.trackBarOPval.Size = new System.Drawing.Size(13, 13);
+            this.trackBarOPval.Size = new System.Drawing.Size(25, 13);
             this.trackBarOPval.TabIndex = 3;
-            this.trackBarOPval.Text = "0";
+            this.trackBarOPval.Text = "255";
             // 
             // trackBarTH
             // 
@@ -181,6 +181,7 @@
             this.trackBarTH.Size = new System.Drawing.Size(182, 45);
             this.trackBarTH.TabIndex = 2;
             this.trackBarTH.TickFrequency = 10;
+            this.trackBarTH.Value = 15;
             this.trackBarTH.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
             // 
             // trackBarOP
@@ -193,6 +194,7 @@
             this.trackBarOP.Size = new System.Drawing.Size(182, 45);
             this.trackBarOP.TabIndex = 1;
             this.trackBarOP.TickFrequency = 17;
+            this.trackBarOP.Value = 255;
             this.trackBarOP.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
             // 
             // pictureBox

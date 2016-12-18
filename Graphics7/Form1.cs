@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,30 +75,42 @@ namespace Graphics7
         {
             if (imExists)
             {
-                Color c = get_col();
-                int thickness = trackBarTH.Value;
                 draw = true;
-                Image im = pictureBox.Image;
-                Graphics g = Graphics.FromImage(im);
-                Pen pen1 = new Pen(c, thickness);
-                g.DrawEllipse(pen1, e.X, e.Y, 2, 2);
-                g.Save();
-                pictureBox.Image = im;
+                Draw(e.X, e.Y);
             }
+        }
+
+        private void Draw(int ex, int ey)
+        {
+            Image im = pictureBox.Image;
+            Color c = get_col();
+            int thickness = trackBarTH.Value;
+            Graphics g = Graphics.FromImage(im);
+
+            // Make a GraphicsPath to represent the ellipse.
+            Rectangle rect = new Rectangle(
+                ex,ey,
+                thickness,
+                thickness);
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(rect);
+
+            // Make a PathGradientBrush from the path.
+            using (PathGradientBrush brush = new PathGradientBrush(path))
+            {
+                brush.CenterColor = c;
+                brush.SurroundColors = new Color[] { Color.Transparent }; ;
+                g.FillEllipse(brush, rect);
+            }
+            g.Save();
+            pictureBox.Image = im;
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (draw)
             {
-                Image im = pictureBox.Image;
-                Color c = get_col();
-                int thickness = trackBarTH.Value;
-                Graphics g = Graphics.FromImage(im);
-                SolidBrush brush = new SolidBrush(c);
-                g.FillEllipse(brush, e.X, e.Y, thickness, thickness);
-                g.Save();
-                pictureBox.Image = im;
+                Draw(e.X, e.Y);
             }
         }
 
