@@ -35,17 +35,17 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.color_l = new System.Windows.Forms.Label();
-            this.trackBarOP = new System.Windows.Forms.TrackBar();
-            this.trackBarTH = new System.Windows.Forms.TrackBar();
-            this.op_val = new System.Windows.Forms.Label();
-            this.th_val = new System.Windows.Forms.Label();
-            this.op_l = new System.Windows.Forms.Label();
             this.th_l = new System.Windows.Forms.Label();
+            this.op_l = new System.Windows.Forms.Label();
+            this.color_l = new System.Windows.Forms.Label();
+            this.trackBarTHval = new System.Windows.Forms.Label();
+            this.trackBarOPval = new System.Windows.Forms.Label();
+            this.trackBarTH = new System.Windows.Forms.TrackBar();
+            this.trackBarOP = new System.Windows.Forms.TrackBar();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarOP)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,25 +77,25 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // panel1
@@ -108,59 +108,23 @@
             this.panel1.Controls.Add(this.th_l);
             this.panel1.Controls.Add(this.op_l);
             this.panel1.Controls.Add(this.color_l);
-            this.panel1.Controls.Add(this.th_val);
-            this.panel1.Controls.Add(this.op_val);
+            this.panel1.Controls.Add(this.trackBarTHval);
+            this.panel1.Controls.Add(this.trackBarOPval);
             this.panel1.Controls.Add(this.trackBarTH);
             this.panel1.Controls.Add(this.trackBarOP);
-            this.panel1.Location = new System.Drawing.Point(0, 80);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 52);
             this.panel1.TabIndex = 1;
             // 
-            // color_l
+            // th_l
             // 
-            this.color_l.BackColor = System.Drawing.Color.Turquoise;
-            this.color_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.color_l.Location = new System.Drawing.Point(494, 11);
-            this.color_l.Name = "color_l";
-            this.color_l.Size = new System.Drawing.Size(25, 23);
-            this.color_l.TabIndex = 0;
-            // 
-            // trackBarOP
-            // 
-            this.trackBarOP.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.trackBarOP.Location = new System.Drawing.Point(11, 3);
-            this.trackBarOP.Maximum = 255;
-            this.trackBarOP.Name = "trackBarOP";
-            this.trackBarOP.Size = new System.Drawing.Size(182, 45);
-            this.trackBarOP.TabIndex = 1;
-            // 
-            // trackBarTH
-            // 
-            this.trackBarTH.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.trackBarTH.Location = new System.Drawing.Point(260, 3);
-            this.trackBarTH.Maximum = 255;
-            this.trackBarTH.Name = "trackBarTH";
-            this.trackBarTH.Size = new System.Drawing.Size(182, 45);
-            this.trackBarTH.TabIndex = 2;
-            // 
-            // op_val
-            // 
-            this.op_val.AutoSize = true;
-            this.op_val.Location = new System.Drawing.Point(199, 21);
-            this.op_val.Name = "op_val";
-            this.op_val.Size = new System.Drawing.Size(13, 13);
-            this.op_val.TabIndex = 3;
-            this.op_val.Text = "0";
-            // 
-            // th_val
-            // 
-            this.th_val.AutoSize = true;
-            this.th_val.Location = new System.Drawing.Point(448, 21);
-            this.th_val.Name = "th_val";
-            this.th_val.Size = new System.Drawing.Size(13, 13);
-            this.th_val.TabIndex = 4;
-            this.th_val.Text = "0";
+            this.th_l.AutoSize = true;
+            this.th_l.Location = new System.Drawing.Point(326, 35);
+            this.th_l.Name = "th_l";
+            this.th_l.Size = new System.Drawing.Size(56, 13);
+            this.th_l.TabIndex = 6;
+            this.th_l.Text = "Thickness";
             // 
             // op_l
             // 
@@ -171,14 +135,56 @@
             this.op_l.TabIndex = 5;
             this.op_l.Text = "Opacity";
             // 
-            // th_l
+            // color_l
             // 
-            this.th_l.AutoSize = true;
-            this.th_l.Location = new System.Drawing.Point(326, 35);
-            this.th_l.Name = "th_l";
-            this.th_l.Size = new System.Drawing.Size(56, 13);
-            this.th_l.TabIndex = 6;
-            this.th_l.Text = "Thickness";
+            this.color_l.BackColor = System.Drawing.Color.Turquoise;
+            this.color_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.color_l.Location = new System.Drawing.Point(494, 11);
+            this.color_l.Name = "color_l";
+            this.color_l.Size = new System.Drawing.Size(25, 23);
+            this.color_l.TabIndex = 0;
+            // 
+            // trackBarTHval
+            // 
+            this.trackBarTHval.AutoSize = true;
+            this.trackBarTHval.Location = new System.Drawing.Point(448, 21);
+            this.trackBarTHval.Name = "trackBarTHval";
+            this.trackBarTHval.Size = new System.Drawing.Size(13, 13);
+            this.trackBarTHval.TabIndex = 4;
+            this.trackBarTHval.Text = "0";
+            // 
+            // trackBarOPval
+            // 
+            this.trackBarOPval.AutoSize = true;
+            this.trackBarOPval.Location = new System.Drawing.Point(199, 21);
+            this.trackBarOPval.Name = "trackBarOPval";
+            this.trackBarOPval.Size = new System.Drawing.Size(13, 13);
+            this.trackBarOPval.TabIndex = 3;
+            this.trackBarOPval.Text = "0";
+            // 
+            // trackBarTH
+            // 
+            this.trackBarTH.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.trackBarTH.LargeChange = 10;
+            this.trackBarTH.Location = new System.Drawing.Point(260, 3);
+            this.trackBarTH.Maximum = 255;
+            this.trackBarTH.Name = "trackBarTH";
+            this.trackBarTH.Size = new System.Drawing.Size(182, 45);
+            this.trackBarTH.TabIndex = 2;
+            this.trackBarTH.TickFrequency = 17;
+            this.trackBarTH.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
+            // 
+            // trackBarOP
+            // 
+            this.trackBarOP.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.trackBarOP.LargeChange = 10;
+            this.trackBarOP.Location = new System.Drawing.Point(11, 3);
+            this.trackBarOP.Maximum = 255;
+            this.trackBarOP.Name = "trackBarOP";
+            this.trackBarOP.Size = new System.Drawing.Size(182, 45);
+            this.trackBarOP.TabIndex = 1;
+            this.trackBarOP.TickFrequency = 17;
+            this.trackBarOP.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
             // 
             // Form1
             // 
@@ -195,8 +201,8 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarOP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarOP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,8 +221,8 @@
         private System.Windows.Forms.Label color_l;
         private System.Windows.Forms.Label th_l;
         private System.Windows.Forms.Label op_l;
-        private System.Windows.Forms.Label th_val;
-        private System.Windows.Forms.Label op_val;
+        private System.Windows.Forms.Label trackBarTHval;
+        private System.Windows.Forms.Label trackBarOPval;
     }
 }
 

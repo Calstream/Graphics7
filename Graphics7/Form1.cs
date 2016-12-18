@@ -15,6 +15,16 @@ namespace Graphics7
         public Form1()
         {
             InitializeComponent();
+
+        }
+
+        private void trackBar_ValueChanged(object sender, EventArgs e)
+        {
+            TrackBar tb = sender as TrackBar;
+            int value = tb.Value;
+            string labelname = tb.Name + "val";
+            Label val = Controls["panel1"].Controls[labelname] as Label;
+            val.Text = value.ToString();
         }
     }
 }
