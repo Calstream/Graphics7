@@ -80,28 +80,28 @@
             // newMenu
             // 
             this.newMenu.Name = "newMenu";
-            this.newMenu.Size = new System.Drawing.Size(152, 22);
+            this.newMenu.Size = new System.Drawing.Size(112, 22);
             this.newMenu.Text = "New";
             this.newMenu.Click += new System.EventHandler(this.newMenu_Click);
             // 
             // openMenu
             // 
             this.openMenu.Name = "openMenu";
-            this.openMenu.Size = new System.Drawing.Size(152, 22);
+            this.openMenu.Size = new System.Drawing.Size(112, 22);
             this.openMenu.Text = "Open...";
             this.openMenu.Click += new System.EventHandler(this.openMenu_Click);
             // 
             // saveMenu
             // 
             this.saveMenu.Name = "saveMenu";
-            this.saveMenu.Size = new System.Drawing.Size(152, 22);
+            this.saveMenu.Size = new System.Drawing.Size(112, 22);
             this.saveMenu.Text = "Save...";
             this.saveMenu.Click += new System.EventHandler(this.saveMenu_Click);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(152, 22);
+            this.exitMenu.Size = new System.Drawing.Size(112, 22);
             this.exitMenu.Text = "Exit";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
             // 
@@ -206,6 +206,9 @@
             this.pictureBox.Size = new System.Drawing.Size(535, 217);
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // Form1
             // 
