@@ -44,6 +44,7 @@ namespace Graphics7
             img.FillRectangle(Brushes.White, 0, 0, w, h);
             pictureBox.Image = im;
             imExists = true;
+            filepath = "";
             this.Text = "NewImage.bmp*";
         }
 
@@ -56,6 +57,8 @@ namespace Graphics7
             {
                 filepath = ofd.FileName;
                 this.Text = Path.GetFileName(filepath);
+                if (pictureBox.Image != null)
+                    pictureBox.Image.Dispose();
                 pictureBox.Image = new Bitmap(ofd.FileName);
                 imExists = true;
             }
@@ -75,8 +78,18 @@ namespace Graphics7
                 DialogResult result = MessageBox.Show(message, "Graphics-7", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
+                    string temp = Path.GetDirectoryName(filepath)+"($$##$$).bmp";
+                    pictureBox.Image.Save(temp);
+                    pictureBox.Image.Dispose();
+                    pictureBox.Image = null;
+              //      System.Threading.Thread.Sleep(5000);
                     File.Delete(filepath);
-                    pictureBox.Image.Save(filepath, System.Drawing.Imaging.ImageFormat.Bmp);
+                    File.Move(temp, filepath);
+                    pictureBox.Image = new Bitmap(filepath);
+
+
+                    //File.Delete(filepath);
+                    //pictureBox.Image.Save(filepath, System.Drawing.Imaging.ImageFormat.Bmp);
                     this.Text = this.Text.Remove(this.Text.Length - 1, 1);
                     saved = true;
                 }
@@ -91,7 +104,7 @@ namespace Graphics7
                 {
                     filepath = sfd.FileName;
                     pictureBox.Image.Save(filepath);
-                    this.Text = this.Text.Remove(this.Text.Length - 1, 1);
+                    this.Text = Path.GetFileName(filepath);
                     saved = true;
                 }
             }
@@ -99,8 +112,7 @@ namespace Graphics7
 
         private void exitMenu_Click(object sender, EventArgs e)
         {
-            if (!saved)
-                Save();
+           
             Close();
         }
 
@@ -169,6 +181,12 @@ namespace Graphics7
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             draw = false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!saved)
+                Save();
         }
     }
 }
